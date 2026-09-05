@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Loom — small threads, kept together</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+  <div id="app">
+
+    <!-- ================= AUTH SCREEN ================= -->
+    <section id="auth-screen" class="auth-screen hidden">
+      <div class="auth-panel">
+        <div class="brand">
+          <span class="brand-mark">◍</span>
+          <h1>Loom</h1>
+        </div>
+        <p class="brand-tag">Small threads, kept together.</p>
+
+        <div class="auth-tabs">
+          <button class="auth-tab active" data-tab="login">Sign in</button>
+          <button class="auth-tab" data-tab="register">Create account</button>
+        </div>
+
+        <form id="login-form" class="auth-form">
+          <label>Username
+            <input type="text" name="username" autocomplete="username" required />
+          </label>
+          <label>Password
+            <input type="password" name="password" autocomplete="current-password" required />
+          </label>
+          <p class="form-error" id="login-error"></p>
+          <button type="submit" class="btn btn-primary">Sign in</button>
+        </form>
+
+        <form id="register-form" class="auth-form hidden">
+          <label>Display name
+            <input type="text" name="displayName" placeholder="How others will see you" required />
+          </label>
+          <label>Username
+            <input type="text" name="username" placeholder="letters, numbers, underscore" required />
+          </label>
+          <label>Email
+            <input type="email" name="email" required />
+          </label>
+          <label>Password
+            <input type="password" name="password" placeholder="at least 6 characters" required />
+          </label>
+          <p class="form-error" id="register-error"></p>
+          <button type="submit" class="btn btn-primary">Create account</button>
+        </form>
+      </div>
+    </section>
+
+    <!-- ================= MAIN APP ================= -->
+    <div id="main-screen" class="main-screen hidden">
+
+      <aside class="sidebar">
+        <div class="brand brand-small">
+          <span class="brand-mark">◍</span>
+          <h1>Loom</h1>
+        </div>
+
+        <nav class="nav">
+          <button class="nav-link active" data-route="feed">
+            <span class="nav-icon">⌂</span> Feed
+          </button>
+          <button class="nav-link" data-route="discover">
+            <span class="nav-icon">✦</span> Discover
+          </button>
+          <button class="nav-link" data-route="profile-self">
+            <span class="nav-icon">◐</span> Profile
+          </button>
+        </nav>
+
+        <div class="sidebar-footer">
+          <div class="me-card" id="me-card"></div>
+          <button class="btn btn-ghost" id="logout-btn">Sign out</button>
+        </div>
+      </aside>
+
+      <main class="content">
+        <header class="content-header">
+          <h2 id="content-title">Feed</h2>
+        </header>
+
+        <div id="view-root"></div>
+      </main>
+    </div>
+
+  </div>
+
+  <template id="tpl-post">
+    <article class="post">
+      <div class="post-thread"></div>
+      <div class="post-avatar"></div>
+      <div class="post-body">
+        <div class="post-head">
+          <span class="post-name"></span>
+          <span class="post-username"></span>
+          <span class="post-dot">·</span>
+          <span class="post-time"></span>
+          <button class="post-delete" title="Delete post">✕</button>
+        </div>
+        <p class="post-content"></p>
+        <div class="post-actions">
+          <button class="action action-like">
+            <span class="action-icon">♡</span> <span class="like-count">0</span>
+          </button>
+          <button class="action action-comment">
+            <span class="action-icon">◔</span> <span class="comment-count">0</span>
+          </button>
+        </div>
+        <div class="post-comments hidden"></div>
+      </div>
+    </article>
+  </template>
+
+  <template id="tpl-comment">
+    <div class="comment">
+      <div class="comment-avatar"></div>
+      <div class="comment-body">
+        <span class="comment-name"></span>
+        <span class="comment-text"></span>
+      </div>
+    </div>
+  </template>
+
+  <template id="tpl-user-row">
+    <div class="user-row">
+      <div class="user-row-avatar"></div>
+      <div class="user-row-info">
+        <span class="user-row-name"></span>
+        <span class="user-row-username"></span>
+      </div>
+      <button class="btn btn-small follow-btn"></button>
+    </div>
+  </template>
+
+  <script src="js/app.js"></script>
+</body>
+</html>

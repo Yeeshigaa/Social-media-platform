@@ -1,0 +1,6 @@
+node_modules/
+loom.db
+loom.db-journal
+loom.db-wal
+loom.db-shm
+.env
