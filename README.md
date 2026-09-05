@@ -1,3 +1,4 @@
+<img width="1280" height="860" alt="loom-screenshot" src="https://github.com/user-attachments/assets/4650fdc4-d15f-4812-b906-311d5db1c608" />
 # Loom — a mini social media platform
 
 A small social app: user profiles, posts, comments, and a like/follow system.
